@@ -1,6 +1,6 @@
 ﻿using System;
 //using NUnit.Framework;
-using Moq
+using Moq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Test_Writing_Test_TDD
@@ -51,7 +51,7 @@ namespace Test_Writing_Test_TDD
         {
 
             //arrange
-            var mockDataAccess = new Mock<IReposio>();
+            var mockDataAccess = new Mock<IRepository>();
             mockDataAccess.Setup(m = > m.CreateProduct(It.IsAny<Product>)).Returns(true);
             var productBusiness = new ProductBusiness(mockDataAccess.Object);
 
