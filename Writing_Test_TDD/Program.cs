@@ -24,5 +24,11 @@ namespace Writing_Test_TDD
             float avg = ((float)a + b + c) / 3;
             return avg;
         }
+        public static float Div(float n1, float n2)
+        {
+            if (n2 == 0.0)
+                throw new DivideByZeroException("Error!!!!");
+            return n1 / n2;
+        }
     }
 }
