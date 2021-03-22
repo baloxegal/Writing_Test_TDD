@@ -30,10 +30,10 @@ namespace Writing_Test_TDD
             var options = new ProductOptions();
             if (optionalParams != null)
                 optionalParams(options);
-            var description = options.GetDescriptions();
+            var description = options.Description;
             if (string.IsNullOrWhiteSpace(description))
                 description = "No description available";
-            var name = options.GetName();
+            var name = options.Name;
             if (string.IsNullOrWhiteSpace(name))
                 description = "No name";
             var product = new Product(name, description, price, ranking, categoryIds);
@@ -49,15 +49,7 @@ namespace Writing_Test_TDD
     }
     public class ProductOptions : IProductOptions
     {
-        public string GetName()
-        {
-            string a = "asgfsdfs";
-            return a;
-        }
-        public string GetDescriptions()
-        {
-            string a = "asgfsdfs";
-            return a;
-        }
+        public string Name { get; set; }
+        public string Description { get; set; }        
     }
 }

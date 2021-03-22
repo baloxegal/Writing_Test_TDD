@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
 using Assert = NUnit.Framework.Assert;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Test_Writing_Test_TDD
 {
     using Writing_Test_TDD;
-    [TestFixture]
-    [TestClass]
+    //[TestClass]
+    [TestFixture]    
     class MoqProductFactoryTest
     {
         private Mock<INotifyProductCreation> _notifyProductCreationMock;
@@ -22,8 +22,9 @@ namespace Test_Writing_Test_TDD
         {
             _notifyProductCreationMock = new Mock<INotifyProductCreation>();
         }
-        [Test]
-        [TestMethod]
+
+        //[TestMethod, SetUp]
+        [Test, SetUp]        
         public void WhenCreateNewProductDefaultDescriptionIsSet()
         {
             //arrange
@@ -31,6 +32,7 @@ namespace Test_Writing_Test_TDD
             //act
             var product = productFactory.CreateNewProduct(100, new List<long>() { 1 }, null);
             //Assert
+            Console.WriteLine(product.description);
             Assert.AreEqual("No description available", product.description);            
         }
     }
