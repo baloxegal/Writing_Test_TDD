@@ -1,4 +1,6 @@
-﻿namespace Writing_Test_TDD
+﻿using System.Collections.Generic;
+
+namespace Writing_Test_TDD
 {
     public class ProductBusiness
     {
@@ -17,7 +19,24 @@
     }
     public class Product
     {
+        public string name;
+        public string description;
+        public long price;
+        public long ranking;
+        public IList<long> categoryIds;
 
+        public Product()
+        {                
+        }
+
+        public Product(string name, string description, long price, long ranking, IList<long> categoryIds)
+        {
+            this.name = name;
+            this.description = description;
+            this.price = price;
+            this.ranking = ranking;
+            this.categoryIds = categoryIds;
+        }
     }
 
     public interface IProductDataAccess

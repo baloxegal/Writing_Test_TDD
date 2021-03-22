@@ -6,9 +6,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Test_Writing_Test_TDD
 {
-    using Writing_Test_TDD;
+    using Writing_Test_TDD;    
 
-    //[TestClass] //it is for Microsoft.VisualStudio.TestTools.UnitTesting
+    [TestClass] //it is for Microsoft.VisualStudio.TestTools.UnitTesting
     [TestFixture]
     public class MathUnitTest
     {
@@ -20,17 +20,27 @@ namespace Test_Writing_Test_TDD
 
         static object[] _avgData2;
 
+        int a = 10;
+        int b = 20;
+        int c = 30;
+        //int a;
+        //int b;
+        //int c;
+
         [SetUp] //???????????????????
-        public static void SetUp()
+        public void SetUp_1()
         {
             _avgData2 = new object[]
             {
                 new object[]{50, 20, 40},
                 new object[]{10, 80, 60}
             };
+            //a = 10;
+            //b = 20;
+            //c = 30;
         }
 
-        public static object[] SetUp1()
+        public static object[] SetUp_2()
         {
             object[] _avgData3 = 
             {
@@ -40,7 +50,7 @@ namespace Test_Writing_Test_TDD
             return _avgData3;
         }
 
-        //[TestMethod] //it is for Microsoft.VisualStudio.TestTools.UnitTesting
+        [TestMethod] //it is for Microsoft.VisualStudio.TestTools.UnitTesting
         [Test]
         public void TestMin()
         {
@@ -52,19 +62,29 @@ namespace Test_Writing_Test_TDD
             //Assert
             Assert.AreEqual(result, min);
         }
+        //int a, int b, int c
 
-        [TestCase(2,12,10)]
-        [TestCase(6,18,22)]
+        [TestCase(2, 12, 10)]
+        [TestCase(6, 18, 22)]
         [TestCaseSource(nameof(_avgData1))]
         [TestCaseSource(nameof(_avgData2))]
-        [TestCaseSource(nameof(SetUp))]
-        [TestCaseSource(nameof(SetUp1))]
-        public void TestAvg(int a, int b, int c)
+        [TestCaseSource(nameof(SetUp_1))]
+        [TestCaseSource(nameof(SetUp_2))]        
+        public void TestAvg_1(int a, int b, int c)
         {
             float avg = Program.Avg(a, b, c);
             Assert.AreEqual(((float)a + b + c) / 3, avg);
         }
 
+        [TestMethod, SetUp]
+        [Test]
+        public void TestAvg_2()
+        {
+            float avg = Program.Avg(a, b, c);
+            Assert.AreEqual(((float)a + b + c) / 3, avg);
+        }
+
+        [TestMethod]
         [TestCase(10, 2)]
         [TestCase(10, 5)]
         [TestCase(10, 0)]
