@@ -15,9 +15,9 @@ namespace Test_Writing_Test_TDD
         public void ItShouldCallCreateProduct()
         {
             //arrange
-            var mockDataAccess = new Mock<IProductDataAccess>();
+            var mockDataAccess = new Mock<ITypeProduct>();
             mockDataAccess.Setup(a => a.CreateProduct(It.IsAny<Product>())).Returns(true);
-            var productBusiness = new ProductBusiness(mockDataAccess.Object);
+            var productBusiness = new ProductBusinessFactory(mockDataAccess.Object);
 
             //act
             productBusiness.CreateProduct(new Product());

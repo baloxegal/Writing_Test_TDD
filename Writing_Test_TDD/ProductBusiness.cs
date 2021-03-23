@@ -2,18 +2,18 @@
 
 namespace Writing_Test_TDD
 {
-    public class ProductBusiness
+    public class ProductBusinessFactory
     {
-        private readonly IProductDataAccess _productDataAccess;
+        private readonly ITypeProduct _productType;
 
-        public ProductBusiness(IProductDataAccess productDataAccess)
+        public ProductBusinessFactory(ITypeProduct productType)
         {
-            _productDataAccess = productDataAccess;
+            _productType = productType;
         }
 
         public bool CreateProduct(Product newProduct)
         {            
-            return _productDataAccess.CreateProduct(newProduct);
+            return _productType.CreateProduct(newProduct);
         }
     }
     public class Product
@@ -38,7 +38,7 @@ namespace Writing_Test_TDD
         }
     }
 
-    public interface IProductDataAccess
+    public interface ITypeProduct
     {
         bool CreateProduct(Product product);
     }
