@@ -12,9 +12,8 @@ namespace Writing_Test_TDD
         }
 
         public bool CreateProduct(Product newProduct)
-        {
-            bool result = _productDataAccess.CreateProduct(newProduct);
-            return result;
+        {            
+            return _productDataAccess.CreateProduct(newProduct);
         }
     }
     public class Product
@@ -26,7 +25,7 @@ namespace Writing_Test_TDD
         public IList<long> categoryIds;
 
         public Product()
-        {                
+        {
         }
 
         public Product(string name, string description, long price, long ranking, IList<long> categoryIds)
@@ -43,4 +42,6 @@ namespace Writing_Test_TDD
     {
         bool CreateProduct(Product product);
     }
+
+
 }

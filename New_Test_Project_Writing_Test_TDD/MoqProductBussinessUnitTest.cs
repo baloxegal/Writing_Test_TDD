@@ -1,17 +1,17 @@
 ﻿using System;
 using Moq;
 using NUnit.Framework;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Test_Writing_Test_TDD
 {
     using Writing_Test_TDD;
     [TestFixture]
-    [TestClass]
+    //[TestClass]
     public class MoqProductBussinessUnitTest
     {
         [Test]
-        [TestMethod]
+        //[TestMethod]
         public void ItShouldCallCreateProduct()
         {
             //arrange

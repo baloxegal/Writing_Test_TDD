@@ -17,7 +17,7 @@ namespace Writing_Test_TDD
 
         public Product CreateNewProduct(long price, IList<long> categoryIds, Action<IProductOptions> optionalParams)
         {
-            return CreateProduct(price, 0, categoryIds, optionalParams);
+            return CreateProduct(price, 0L, categoryIds, optionalParams);
         }
 
         public Product CreateExportedProduct(long price, long ranking, IList<long> categoryIds, Action<IProductOptions> optionalParams)
@@ -28,16 +28,17 @@ namespace Writing_Test_TDD
         private Product CreateProduct(long price, long ranking, IList<long> categoryIds, Action<IProductOptions> optionalParams)
         {
             var options = new ProductOptions();
-            if (optionalParams != null)
-                optionalParams(options);
+            optionalParams?.Invoke(options);
+
             var description = options.Description;
             if (string.IsNullOrWhiteSpace(description))
                 description = "No description available";
+
             var name = options.Name;
             if (string.IsNullOrWhiteSpace(name))
-                description = "No name";
+                name = "No name";
             var product = new Product(name, description, price, ranking, categoryIds);
-
+            
             return product;
         }
     }
@@ -50,6 +51,6 @@ namespace Writing_Test_TDD
     public class ProductOptions : IProductOptions
     {
         public string Name { get; set; }
-        public string Description { get; set; }        
+        public string Description { get; set; }
     }
 }
