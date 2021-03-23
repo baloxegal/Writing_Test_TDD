@@ -12,11 +12,11 @@ namespace New_Test_Project_Writing_Test_TDD
 
     //[TestClass]
     [TestFixture]
-    public class MathTest
+    public class MathFixture
     {
         //[TestMethod]
         [Test]
-        public void TestMin()
+        public void TestMinFixture()
         {
             //Arrange
             var a = 10;
@@ -29,7 +29,7 @@ namespace New_Test_Project_Writing_Test_TDD
 
         [TestCase(2, 12, 10)]
         [TestCase(6, 18, 22)]        
-        public void TestAvg_1(int a, int b, int c)
+        public void TestAvg_1Fixture(int a, int b, int c)
         {
             float avg = Program.Avg(a, b, c);
             Assert.AreEqual(((float)a + b + c) / 3, avg);
@@ -43,7 +43,7 @@ namespace New_Test_Project_Writing_Test_TDD
 
         //[Test, TestCaseSource("_avgData1")]
         [TestCaseSource(nameof(_avgData1))]        
-        public void TestAvg_2(int a, int b, int c)
+        public void TestAvg_2Fixture(int a, int b, int c)
         {
             float avg = Program.Avg(a, b, c);
             Assert.AreEqual(((float)a + b + c) / 3, avg);
@@ -60,7 +60,7 @@ namespace New_Test_Project_Writing_Test_TDD
         }
 
         [TestCaseSource(nameof(SetUp_1))]
-        public void TestAvg_3(int a, int b, int c)
+        public void TestAvg_3Fixture(int a, int b, int c)
         {
             float avg = Program.Avg(a, b, c);
             Assert.AreEqual(((float)a + b + c) / 3, avg);
@@ -71,7 +71,7 @@ namespace New_Test_Project_Writing_Test_TDD
         int c = 30;
 
         [Test]        
-        public void TestAvg_4()
+        public void TestAvg_4Fixture()
         {
             float avg = Program.Avg(a, b, c);
             Assert.AreEqual(((float)a + b + c) / 3, avg);
@@ -102,7 +102,7 @@ namespace New_Test_Project_Writing_Test_TDD
         }
 
         [Test, SetUp]
-        public void TestAvg_5()
+        public void TestAvg_5Fixture()
         {
             float avg = Program.Avg(d, e, f);
             Assert.AreEqual(50, avg);
@@ -110,7 +110,7 @@ namespace New_Test_Project_Writing_Test_TDD
 
         [TestCase(10, 2)]
         [TestCase(10, 5)]              
-        public void TestDivide(int arg1, int arg2)
+        public void TestDivideFixture(int arg1, int arg2)
         {
             // act
             float result = Program.Div(arg1, arg2);

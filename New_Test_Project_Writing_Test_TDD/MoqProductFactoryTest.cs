@@ -10,7 +10,7 @@ namespace Test_Writing_Test_TDD
     using Writing_Test_TDD;
 
     [TestFixture]    
-    class MoqProductFactoryTest
+    class MoqProductFactoryFixture
     {
         private Mock<INotifyProductCreation> _notifyProductCreationMock;
 

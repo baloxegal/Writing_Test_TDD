@@ -8,7 +8,7 @@ namespace Test_Writing_Test_TDD
     using Writing_Test_TDD;
     [TestFixture]
     //[TestClass]
-    public class MoqProductBussinessUnitTest
+    public class MoqProductBussinessFixture
     {
         [Test]
         //[TestMethod]
