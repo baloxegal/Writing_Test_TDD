@@ -107,29 +107,32 @@ namespace New_Test_Project_Writing_Test_TDD
             float avg = Program.Avg(d, e, f);
             Assert.AreEqual(50, avg);
         }
-
-        [TestCase(10, 2)]
-        [TestCase(10, 5)]              
-        public void TestDivideFixture(int arg1, int arg2)
+        
+        public class DivFixture
         {
-            // act
-            float result = Program.Div(arg1, arg2);
-            // assert
-            Assert.AreEqual(arg1 / arg2, result);            
-        }
+            [TestCase(10, 2)]
+            [TestCase(10, 5)]
+            public void TestDivideFixture(int arg1, int arg2)
+            {
+                // act
+                float result = Program.Div(arg1, arg2);
+                // assert
+                Assert.AreEqual(arg1 / arg2, result);
+            }
 
-        //[ExpectedException(typeof(DivideByZeroException),
-        //    "We can't divison on zero")]
-        [TestCase(10, 0)]
-        public void DivideThrowsWhenDivizorIsZero(int arg1, int arg2)
-        {            
-            //both - act and assert           
-            Assert.Throws<DivideByZeroException>(() => Program.Div(arg1, arg2));
-        }
+            //[ExpectedException(typeof(DivideByZeroException),
+            //    "We can't divison on zero")]
+            [TestCase(10, 0)]
+            public void DivideThrowsWhenDivizorIsZero(int arg1, int arg2)
+            {
+                //both - act and assert           
+                Assert.Throws<DivideByZeroException>(() => Program.Div(arg1, arg2));
+            }
 
-        [TearDown] //it is for execute last, after a test
-        public void TearDown()
-        {
+            [TearDown] //it is for execute last, after a test
+            public void TearDown()
+            {
+            }
         }
     }
 }
